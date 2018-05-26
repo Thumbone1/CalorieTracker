@@ -27,6 +27,7 @@ public class CalorieTracker {
     
     public CalorieTracker() {
         this.reader = new Reader();
+        this.numDays = 0;
     }
     
     public void start() {
@@ -99,6 +100,7 @@ public class CalorieTracker {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;
+            numDays = 0;
             try {
                 while((line = br.readLine()) != null) { 
                     int lastInt = Integer.parseInt(line);
@@ -151,7 +153,7 @@ public class CalorieTracker {
         System.out.print("How many calories would you like to add? ");
         int calories = reader.readInteger();
         System.out.print("Are you sure " + calories 
-                + " is the correct amount? y/n");
+                + " is the correct amount? y/n: ");
         String answer = reader.readString();
         if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
             writeToFile(DAY_TRACKER_FILE, calories);
@@ -160,11 +162,12 @@ public class CalorieTracker {
     
     private void addToTotalCalories() {
         int totCalories = readAndSumFile(DAY_TRACKER_FILE);
-        System.out.println("You have " + totCalories + " today.");
-        System.out.println("Are you done eating for the day and want "
-                + "to add this total to your tracking file? y/n");
         System.out.println("(NOTE: ADDING THESE CALORIES TO YOUR TRACKER WILL "
                 + "DELETE YOUR DAILY TRACKING AMOUNT!");
+        System.out.println("You have " + totCalories + " today.");
+        System.out.println("Are you done eating for the day and want "
+                + "to add this total to your tracking file? y/n: ");
+        
         String answer = reader.readString();
         
         if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
