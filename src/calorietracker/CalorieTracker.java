@@ -173,6 +173,10 @@ public class CalorieTracker {
 
     private int readAndAverageCalories() {
         int sum = readAndSumFile(CALORIES_FILE);
+        if (numDays == 0) {
+            return 0;
+        }
+        
         return sum / numDays;
     }
 }
