@@ -89,7 +89,7 @@ public class CalorieTracker {
         
         if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
             FileAssistant.writeToFile(CALORIES_FILE, totCalories);
-            deleteTempFile(DAY_TRACKER_FILE);
+            FileAssistant.deleteTempFile(DAY_TRACKER_FILE);
         }
     }
 
