@@ -1,6 +1,6 @@
 
 
-package calorietracker;
+package calorietracker.util;
 
 import java.io.BufferedWriter;
 import java.io.File;

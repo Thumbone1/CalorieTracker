@@ -1,4 +1,4 @@
-package calorietracker;
+package calorietracker.util;
 
 
 import java.util.Scanner;
