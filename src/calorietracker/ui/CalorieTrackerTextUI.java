@@ -195,6 +195,7 @@ public class CalorieTrackerTextUI {
             
             if (response.contains("y")) {
                 FileAssistant.deleteFile(FileAssistant.DAY_TRACKER_FILE);
+                tracker.reInitializeDayTracker();
                 System.out.println("meals have been deleted for the day");
             }
             
