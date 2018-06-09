@@ -77,8 +77,9 @@ public class CalorieTrackerTextUI {
         List<Integer> day = FileAssistant.initializeList(
                 FileAssistant.DAY_TRACKER_FILE);
         
-        for (int i : day) {
-            System.out.println("\t" + i);
+        for (int i = 0; i < day.size(); i++) {
+            int mealNumber = i + 1;
+            System.out.println("\tmeal " + mealNumber + ": " + day.get(i));
         }
         
         System.out.println("\tTotal calories for the day: " + 
@@ -147,9 +148,57 @@ public class CalorieTrackerTextUI {
     }
     
     private void editDayTracker() {
+        
         System.out.println("OPTIONS: \n"
                 + "1 - edit meal tracker\n"
-                + "2 - delete meal tracker");
+                + "2 - delete meal tracker\n"
+                + "0 - exit");
+        System.out.print("What would you like to do? ");
+        int ans = reader.readInteger();
+        
+        if (ans == 1) {
+            
+            // ensure the dayCalories list is updated
+            tracker.reInitializeDayTracker();
+            showDaySoFar();
+            
+            System.out.println("Which meal would you like to change/delete?");
+            int mealNum = reader.readInteger();
+            
+            if (mealNum > tracker.getDayCalories().size()) {
+                System.out.println("Number is invalid - "
+                        + "select a meal from the list");
+                return;
+            }
+            
+            System.out.println("Type the amount of calories you want to "
+                    + "replace this meal with");
+            int newCals = reader.readInteger();
+            
+            //replace the meal in the dayCalories list
+            tracker.getDayCalories().set(mealNum - 1, newCals);
+            
+            //write the dayCalories list to a new daytracker file
+            FileAssistant.deleteFile(FileAssistant.DAY_TRACKER_FILE);
+            FileAssistant.writeListToFile(FileAssistant.DAY_TRACKER_FILE, 
+                    tracker.getDayCalories());
+            
+            // give user feedback
+            System.out.println("Meal " + mealNum + " replaced with " + newCals);
+            showDaySoFar();
+            
+        }
+        
+        if (ans == 2) {
+            System.out.print("Are you sure you want to start over? y/n");
+            String response = reader.readString().toLowerCase().trim();
+            
+            if (response.contains("y")) {
+                FileAssistant.deleteFile(FileAssistant.DAY_TRACKER_FILE);
+                System.out.println("meals have been deleted for the day");
+            }
+            
+        }
         
     }
 

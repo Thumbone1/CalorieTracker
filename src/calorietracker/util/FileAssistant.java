@@ -68,14 +68,27 @@ public class FileAssistant {
                 br.close();
             }
         } catch (NumberFormatException | IOException e) {
-            System.out.println("Exception occured! " + e);
+            System.out.println("Exception occured!\n " + e);
         }
         
         return newList;
     }
     
     public static boolean deleteFile(File file) {
+        
         return file.delete();
+        
+    }
+    
+    public static void writeListToFile(File file, List<Integer> list) {
+        if (list.isEmpty()) {
+            System.out.println("List is empty");
+            return;
+        }
+        
+        for (int i : list) {
+            writeToFile(file, i);
+        }
     }
 
 }

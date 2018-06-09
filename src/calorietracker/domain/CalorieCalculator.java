@@ -76,6 +76,10 @@ public class CalorieCalculator {
         
         return total;
     }
+
+    public List<Integer> getDayCalories() {
+        return dayCalories;
+    }
     
     
 }
