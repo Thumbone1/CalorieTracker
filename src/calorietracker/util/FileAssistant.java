@@ -74,5 +74,8 @@ public class FileAssistant {
         return newList;
     }
     
+    public static boolean deleteFile(File file) {
+        return file.delete();
+    }
 
 }

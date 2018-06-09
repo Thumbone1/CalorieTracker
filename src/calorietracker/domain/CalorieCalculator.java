@@ -1,7 +1,6 @@
 package calorietracker.domain;
 
 import calorietracker.util.FileAssistant;
-import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
@@ -25,21 +24,23 @@ public class CalorieCalculator {
             return -1;
         }
         
-        return total(calories) / calories.size();
+        return sum(calories) / calories.size();
     }
     
-    public int total(List<Integer> list) {
-        if (list.isEmpty()) {
+    public int totalCalories() {
+        if (calories.isEmpty()) {
             return -1;
         }
         
-        int total = 0;
-        
-        for (int i : calories) {
-            total += i;
+        return sum(calories);
+    }
+    
+    public int totalDayCalories() {
+        if (dayCalories.isEmpty()) {
+            return -1;
         }
         
-        return total;
+        return sum(dayCalories);
     }
     
     public int maxCalories() {
@@ -64,6 +65,16 @@ public class CalorieCalculator {
     
     public void reInitializeCalories() {
         this.calories = FileAssistant.initializeList(FileAssistant.CALORIES_FILE);
+    }
+    
+    private int sum(List<Integer> list) {
+        int total = 0;
+        
+        for (int i : list) {
+            total += i;
+        }
+        
+        return total;
     }
     
     

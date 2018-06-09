@@ -5,9 +5,9 @@
         <group>
             <file>file:/B:/Code/CalorieTracker/src/calorietracker/Main.java</file>
             <file>file:/B:/Code/CalorieTracker/src/calorietracker/ui/CalorieTrackerTextUI.java</file>
-            <file>file:/B:/Code/CalorieTracker/src/calorietracker/CalorieTracker.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/util/TextReader.java</file>
             <file>file:/B:/Code/CalorieTracker/src/calorietracker/util/FileAssistant.java</file>
-            <file>file:/B:/Code/CalorieTracker/src/calorietracker/util/Reader.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/domain/CalorieCalculator.java</file>
         </group>
     </open-files>
 </project-private>
