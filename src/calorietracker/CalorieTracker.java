@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  */
 public class CalorieTracker {
     
-    private final Reader reader;
+    private Reader reader;
     private int numDays;
     private final File CALORIES_FILE = new File("Calories.txt");
     private final File DAY_TRACKER_FILE = new File("daytracker.txt");   
@@ -55,7 +55,7 @@ public class CalorieTracker {
         }
     }
        
-    private void writeToFile(File file, int total) {
+    public void writeToFile(File file, int total) {
         PrintWriter pw = null;
         try {
             if (!file.exists()) {
