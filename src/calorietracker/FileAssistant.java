@@ -13,10 +13,8 @@ import java.io.PrintWriter;
  * @author Thumbone1
  */
 public class FileAssistant {
-    private final File CALORIES_FILE = new File("Calories.txt");
-    private final File DAY_TRACKER_FILE = new File("daytracker.txt");
 
-    public void writeToFile(File file, int total) {
+    public static void writeToFile(File file, int total) {
         PrintWriter pw = null;
         try {
             if (!file.exists()) {
@@ -40,7 +38,7 @@ public class FileAssistant {
         
     }
     
-    public void deleteTempFile(File file) {       
+    public static void deleteTempFile(File file) {       
         if (file.delete()) {
             System.out.println(file.toString() + " deleted successfully!");
         } else {

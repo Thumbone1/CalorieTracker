@@ -53,31 +53,7 @@ public class CalorieTracker {
             }
             
         }
-    }
-       
-    public void writeToFile(File file, int total) {
-        PrintWriter pw = null;
-        try {
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            
-            pw = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
-            pw.println(total);
-            System.out.println(total + " added to " + file.toString());
-            
-        } catch(IOException e) {
-            System.out.println("IOException " + e);
-        
-        } catch(Exception e) {
-            System.out.println("IOException " + e);
-        
-        } finally {
-            pw.close();
-            pw.flush();
-        }
-        
-    }
+    }      
     
     private int readAndSumFile(File file) {
         int sum = 0;
@@ -151,7 +127,7 @@ public class CalorieTracker {
                 + " is the correct amount? y/n: ");
         String answer = reader.readString();
         if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
-            writeToFile(DAY_TRACKER_FILE, calories);
+            FileAssistant.writeToFile(DAY_TRACKER_FILE, calories);
         }
     }
     
@@ -166,7 +142,7 @@ public class CalorieTracker {
         String answer = reader.readString();
         
         if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
-            writeToFile(CALORIES_FILE, totCalories);
+            FileAssistant.writeToFile(CALORIES_FILE, totCalories);
             deleteTempFile(DAY_TRACKER_FILE);
         }
     }
