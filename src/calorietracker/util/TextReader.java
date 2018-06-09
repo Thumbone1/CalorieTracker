@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Thumbone1
  */
-public class Reader {
+public class TextReader {
     private Scanner sc = new Scanner(System.in);
     
     public String readString() {

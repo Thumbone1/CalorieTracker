@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/Main.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/ui/CalorieTrackerTextUI.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/CalorieTracker.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/util/FileAssistant.java</file>
+            <file>file:/B:/Code/CalorieTracker/src/calorietracker/util/Reader.java</file>
+        </group>
     </open-files>
 </project-private>
